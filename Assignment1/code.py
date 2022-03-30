@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-import math
+
 def section(m,n,x1,y1,x2,y2) : 
   #function to find the point that divides the line segment joining (x1,y1),(x2,y2) in m:n ratio.
   #Section formula
