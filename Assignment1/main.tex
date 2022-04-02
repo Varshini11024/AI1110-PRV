@@ -14,13 +14,9 @@
 
 \usepackage{enumitem}
 \usepackage{mathtools}
-\usepackage{tikz}
-\usepackage{circuitikz}
 \usepackage[breaklinks=true]{hyperref}
 \usepackage{graphicx}
-\usepackage{tkz-euclide}
 
-\usetikzlibrary{calc,math}
 \usepackage{listings}
     \usepackage{color}                                            %%
     \usepackage{array}                                            %%
@@ -67,6 +63,7 @@ columns=fullflexible
 \providecommand{\mean}[1]{E[ #1 ]}
 \providecommand{\fourier}{\overset{\mathcal{F}}{ \rightleftharpoons}}
 
+\newcommand{\question}{\noindent \textbf{Question: }}
 \newcommand{\solution}{\noindent \textbf{Solution: }}
 \providecommand{\dec}[2]{\ensuremath{\overset{#1}{\underset{#2}{\gtrless}}}}
 \newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
@@ -102,22 +99,19 @@ columns=fullflexible
 \numberwithin{equation}{enumi}
 \numberwithin{figure}{enumi}
 
-\begin{center}
-    \includegraphics[width=0.49\textwidth]{prv1a.png}
-\end{center}
-
+\question $\vec{A}\myvec{2,5}$, $\vec{B}\myvec{-1,2}, \vec{C}\myvec{5,8}$ are the vertices of the triangle ABC, `M' is a point on $AB$ such that $AM:MB = 1:2$. Find the co-ordinates of `M'. Hence find the equation of line passing through the points $C$ and $M$.
+\newline \newline
 \solution According to the question, $M$ is a point on the side $AB$ such that $$AM : MB = 1 : 2$$
- When the line segment AB is divided internally by C in the ratio $m:n$, from Section formula,\\
+ When the line segment $AB$, where the points are $\vec{A}=\myvec{x1\\y1}, \vec{B}=\myvec{x2\\y2}$, is divided internally by C in the ratio $m:n$, from Section formula,
  we get the Coordinates of point C as,
-\begin{align} \label{1}
-\vec{C} = \myvec{\frac{mx2+nx1}{m+n}\\\\ \frac{my2+ny1}{m+n}}, where\\
-     \vec{A}=\myvec{x1\\y1}, \vec{B}=\myvec{x2\\y2} \label{2}
+\begin{align} 
+\vec{C} = \myvec{\frac{mx2+nx1}{m+n}\\\\ \frac{my2+ny1}{m+n}},\label{1}
 \end{align}
-From given data, Using \eqref{1} here, we get
+From given data, Using \eqref{1} in finding $M$, we get
 \begin{align}
     \vec{M} &= \myvec{\frac{-1+4}{1+2}\\\\ \frac{2+10}{1+2}}\\  \label{3}
    &= \myvec{1\\4}
-\end{align}\\\\ 
+\end{align}\newline
 The equation of the line joining two points \myvec{a\\b} and \myvec{c\\d} is 
 \begin{align}
     \myvec{y-b} = {\myvec{\frac{d-b}{c-a}}}\myvec{x-a} \label{5}
@@ -134,17 +128,20 @@ Simplified, we get the equation
  \begin{align}
      x-y+3=0
  \end{align}
-\subsection*{But, However,} On using \eqref{5}, we get\\
+\subsection*{But, However,} On using \eqref{5}, we get
+\newline
 \begin{enumerate}
-    \item The equation of the line joining $\vec{A}\myvec{2\\5}, \vec{B}\myvec{-1\\2}$ as $\myvec{1 & - 1}\vec{x} + 3 = 0$ \\\\
-    
-    \item and the equation of the line joining $\vec{B}\myvec{-1\\2}, \vec{C}\myvec{5\\8}$ as $\myvec{1 & - 1}\vec{x} + 3 = 0$ too.\\
+    \item The equation of the line joining $\vec{A}\myvec{2\\5}, \vec{B}\myvec{-1\\2}$ as $\myvec{1 & - 1}\vec{x} + 3 = 0$. 
+    \newline
+    \item and the equation of the line joining $\vec{B}\myvec{-1\\2}, \vec{C}\myvec{5\\8}$ as $\myvec{1 & - 1}\vec{x} + 3 = 0$ too.\newline
 \end{enumerate}
 
  This implies that $A,B,C$ points are `collinear' and lie on the line $x-y+3=0$ and Hence, given points $A,B,C$ don't form a triangle.\newline\\
 Verified by plotting the graph of A,B,C and M points :
-\begin{center}
-  \includegraphics[scale=0.6]{prv1b.png}
-\end{center}
-    
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=\columnwidth]{prv1a.png}
+\end{figure}
+ 
 \end{document}
+
