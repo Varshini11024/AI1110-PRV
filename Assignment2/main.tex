@@ -1,1 +1,72 @@
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
 
+\usepackage[cmex10]{amsmath}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage[breaklinks=false]{hyperref}
+
+\bibliographystyle{IEEEtran}
+\let\vec\mathbf
+
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+
+\newcommand{\question}{\noindent \textbf{Question: }}
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+
+\title{Assignment 2}
+\author{Varshini Jonnala (CS21BTECH11024)}
+
+\begin{document}
+
+    % make the title area
+    \maketitle
+    
+    \question
+    \begin{enumerate}[label=]
+        \item  If A and B are events such that $P(A) = \frac{1}{2}$, $P(B)= \frac{1}{3}$ and $P(A \cap B)= \frac{1}{4}$ , then find:
+    \begin{enumerate}
+        \item $P(A \mid B)$
+        \item $P(B \mid A)$
+    \end{enumerate}
+    \end{enumerate}
+
+    \solution 
+        Let $X$ and $Y$ be two events such that 
+        \begin{align}
+            \pr{X} = x\\
+            \pr{Y} = y\\
+            \pr{X \cap Y} = z
+        \end{align}
+         We know that
+        \begin{align}
+          \label{4}   \pr{X \mid Y} &= \frac{\pr{X \cap Y}}{\pr{Y}}\\
+            \implies \pr{X \mid Y} &= \frac{z}{y}
+        \end{align}
+        
+        Now, It is given that
+        \begin{align}
+            \pr{A} = \frac{1}{2}\\
+            \pr{B} = \frac{1}{3}\\
+            \pr{A \cap B} = \frac{1}{4}
+        \end{align}
+        
+        \begin{enumerate}
+            \item Using \eqref{4}
+            \begin{align}
+                \pr{A \mid B} &= \frac{\pr{A \cap B}}{\pr{B}}\\
+                \implies \pr{A \mid B} &= {\frac{\frac{1}{4}}{\frac{1}{3}}}\\
+                \implies \pr{A \mid B} &= \frac{3}{4} = 0.75
+            \end{align}
+            
+            \item Using \eqref{4}
+                \begin{align}
+                \pr{B \mid A} &= \frac{\pr{A \cap B}}{\pr{A}}\\
+                \implies \pr{B \mid A} &= {\frac{\frac{1}{4}}{\frac{1}{2}}}\\
+                \implies \pr{B \mid A} &= \frac{1}{2} = 0.50
+            \end{align} 
+        \end{enumerate}
+    
+\end{document}
