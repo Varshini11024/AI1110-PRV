@@ -23,7 +23,7 @@
     \maketitle
         % The question
     \textbf{Question: }\\
-      A(2,5), B(-1,2) and C(5,8) are the vertices of the triangle $\vec{ABC}$, $\vec{M}$ is a point on $\vec{AB}$ such that AM:MB = 1:2. Find the co-ordinates of $\vec{M}$. Hence find the equation of line passing through the points $\vec{C}$ and $\vec{M}$.
+      A(2,5), B(-1,2) and C(5,8) are the vertices of the triangle $ABC$, $\vec{M}$ is a point on $AB$ such that AM:MB = 1:2. Find the co-ordinates of $\vec{M}$. Hence find the equation of line passing through the points $\vec{C}$ and $\vec{M}$.
 
 
     \textbf{Solution: }
@@ -33,21 +33,29 @@
 		\vec{B} = \myvec{-1 \\ 2},
 		\vec{C} = \myvec{5 \\ 8}
 	\end{align}
-
-    When the line segment $\vec{AB}$, where the points are $\vec{A}=\myvec{p\\q}, \vec{B}=\myvec{r\\s}$, is divided internally by $\vec{C}$ in the ratio $m:n$, from Section formula,
-    we get the Coordinates of point $\vec{C}$ as,
-    \begin{align} 
-        \vec{C} = \myvec{\frac{mr+np}{m+n}\\\\ \frac{ms+nq}{m+n}},
-    \end{align}	
-    Given, $\vec{M}$ is a point on side $\vec{AB}$ such that $AM:MB = 1:2$. 
-        Using Section Formula, we get
+   Let R divides $\overrightarrow{PQ}$ internally in the ratio of k : 1 i.e, $\frac{\overrightarrow{PR}}{\overrightarrow{RQ}} = \frac{k}{1}$ such that
     \begin{align}
-        \vec{M} &= \myvec{\frac{1(-1)+2(2)}{1+2}\\\\ \frac{1(2)+2(5)}{1+2}}\\
-        \implies \vec{M} &= \myvec{\frac{-1+4}{1+2}\\\\ \frac{2+10}{1+2}}\\
-        \implies \vec{M} &= \myvec{1\\4}
+        \overrightarrow{a} = \overrightarrow{OP}\\
+        \overrightarrow{b} = \overrightarrow{OQ}\\
+        \overrightarrow{r} = \overrightarrow{OR}
+    \end{align}
+    Then, we get 
+    \begin{align}
+       \label{5} \overrightarrow{r} = \frac{k\overrightarrow{b}+1\overrightarrow{a}}{k+1}
+    \end{align}
+
+    Given, $\vec{M}$ is a point on side $AB$ such that $AM:MB = 1:2$. 
+        Using \eqref{5}, we get
+    \begin{align}
+        \overrightarrow{m} = \frac{\overrightarrow{b}+2\overrightarrow{a}}{3}
+    \end{align}
+    On substituting, we get
+    \begin{align}
+        \vec{M} &= \frac{\myvec{-1 \\ 2} + 2\myvec{2 \\ 5}}{3}\\ \implies \vec{M} &= \myvec{1\\4}.
     \end{align}
     
-    Let L be the line that passes through points $\vec{C}\myvec{5\\8}, \vec{M}\myvec{1\\4}$.
+    Let L be the line that passes through points $\vec{C}\myvec{5\\8}$,
+   
     The direction vector of $CM$ is,
     
     \begin{align}
