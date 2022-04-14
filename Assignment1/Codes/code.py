@@ -1,3 +1,6 @@
+import numpy as np
+from matplotlib import pyplot as plt
+
 import matplotlib.pyplot as plt
 
 def section(m,n,x1,y1,x2,y2) : 
@@ -33,14 +36,22 @@ line(C, M)
 #B(-1,2)
 #C(5,8)
 #M(1,4)
-plt.plot([2,-1,5,1,2],[5,2,8,4,5],marker = 'o')
-plt.annotate('A(2,5)',(2,5),(2.5,5),arrowprops={"arrowstyle":"<-"})
-plt.annotate('B(-1,2)',(-1,2),(-0.5,2),arrowprops={"arrowstyle":"<-"})
-plt.annotate('M(1,4)',(1,4),(1.5,4),arrowprops={"arrowstyle":"<-"})
-plt.annotate('C (5,8)',(5,8),(4,8),arrowprops={"arrowstyle":"<-"})
+data = np.array([
+    [2,5],
+    [-1,2],
+    [5, 8],
+    [1,4]
+])
+x, y = data.T
+plt.plot(x,y, marker = 'o')
 
 plt.axvline(x=0, c="black")
 plt.axhline(y=0, c="black")
+
+plt.annotate('A(2,5)',(2,5),(2.2,5))
+plt.annotate('B(-1,2)',(-1,2),(-0.7,2))
+plt.annotate('M(1,4)',(1,4),(1.2,4))
+plt.annotate('C (5,8)',(5,8),(4.3,8))
 
 plt.title('Plotting of the points A,B,C, and M')
 plt.grid()
