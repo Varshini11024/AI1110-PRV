@@ -42,6 +42,6 @@ plt.annotate('C (5,8)',(5,8),(4,8),arrowprops={"arrowstyle":"<-"})
 plt.axvline(x=0, c="black")
 plt.axhline(y=0, c="black")
 
-plt.title('Graph of x-y+3=0 or 4x-4y+12=0')
+plt.title('Plotting of the points A,B,C, and M')
 plt.grid()
 plt.show()
