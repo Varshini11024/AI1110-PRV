@@ -32,22 +32,16 @@
 		\vec{B} = \myvec{-1 \\ 2},
 		\vec{C} = \myvec{5 \\ 8}
 	\end{align}
-   Let 
-    \begin{align}
-        \overrightarrow{a} = \overrightarrow{OA}\\
-        \overrightarrow{b} = \overrightarrow{OB}\\
-        \overrightarrow{m} = \overrightarrow{OM}
-    \end{align}
-    and $\vec{M}$ divides $\overrightarrow{AB}$ internally in the ratio of k : 1
+   Let $\vec{M}$ divides $AB$ internally in the ratio of k : 1
     Then, we get 
     \begin{align}
-       \label{5} \overrightarrow{m}=\frac{k\overrightarrow{b}+1\overrightarrow{a}}{k+1}
+       \label{2} \vec{M}=\frac{k\vec{B}+1\vec{A}}{k+1}
     \end{align}
 
-    Given, $\vec{M}$ is a point on side $AB$ such that $AM:MB = 1:2$. 
-        Using \eqref{5}, we get
+    Given, $\vec{M}$ is a point on side $AB$ such that $AM:MB$ = 1:2. 
+        Using \eqref{2}, we get
     \begin{align}
-        \overrightarrow{m} = \frac{\overrightarrow{b}+2\overrightarrow{a}}{3}
+        \vec{M} = \frac{\vec{B}+2\vec{A}}{3}
     \end{align}
     On substituting, we get
     \begin{align}
@@ -56,7 +50,6 @@
     
     Let L be the line that passes through points $\vec{C}\myvec{5\\8}$,
     The direction vector of $CM$ is,
-    
     \begin{align}
         &\vec{m} = \vec{C} - \vec{M}\\
 	    \implies &\vec{m} = \myvec{5 \\ 8} - \myvec{1 \\ 4}\\
@@ -83,19 +76,8 @@
     \begin{align}
           \myvec{1 & - 1}\vec{x} + 3 &= 0
     \end{align}
-        which can also be represented as 
-    \begin{align}
-         x-y+3=0
-    \end{align}
       
-    {\large But, However,} We get
-    \begin{enumerate}
-        \item The equation of the line joining $\vec{A}\myvec{2\\5}$, $\vec{B}\myvec{-1\\2}$ as $\myvec{1 & - 1}\vec{x} = -3$.
-           
-        \item The equation of the line joining $\vec{B}\myvec{-1\\2}$, $\vec{C}\myvec{5\\8}$ as $\myvec{1 & - 1}\vec{x}=-3$ too.
-    \end{enumerate}
-   
-    Now, Let's find the area of triangle to verify if the points are collinear:
+    Now, Let's find the area of triangle:
     Given, 
     \begin{align}
 		\vec{A} = \myvec{2 \\ 5} ,
@@ -112,17 +94,19 @@
     \begin{align}
      \mydet{3 & -3\\3 & -3} 
     \end{align}
-    Thus the desired area is 0 units.
-	
-    \large Hence, Given points $\vec{A}, \vec{B}, \vec{C}$ don't form a triangle.
-
-    \large Also Verified by plotting the graph of $\vec{A}, \vec{B}, \vec{C}$ and $\vec{M}$ points :
+    Thus the desired area is 0 units which implies that the given 3 points do not form a triangle, but are collinear.
+    
+    And, The points $\vec{A}$, $\vec{B}$, $\vec{C}$ and $\vec{M}$ lie on the line 
+    \begin{align}
+          \myvec{1 & - 1}\vec{x} + 3 &= 0
+    \end{align}
+    
+    Also Verified by plotting the graph that shows that $\vec{A}$, $\vec{B}$, $\vec{C}$ and $\vec{M}$ points are collinear:
 
     % The graph
   	\begin{figure}[!ht]
 		\centering
 		\includegraphics[width=\columnwidth]{prv1.png}
-		\caption{\large Graph showing that the points  $\vec{A}, \vec{B}, \vec{C}$, $\vec{M}$ lie on the same line.}
 	\end{figure}
 	
 \end{document}
