@@ -1,17 +1,37 @@
 \documentclass[journal,12pt,twocolumn]{IEEEtran}
 
-\usepackage[cmex10]{amsmath}
+\usepackage{setspace}
+\usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{mathrsfs}
+\usepackage{longtable}
 \usepackage{enumitem}
 \usepackage{mathtools}
-\usepackage[breaklinks=false]{hyperref}
+\usepackage{longtable}
+\usepackage[breaklinks=true]{hyperref}
+
+\usepackage{listings}
+    \usepackage{color}                                            %%
+    \usepackage{array}                                            %%
+    \usepackage{longtable}                                        %%
+    \usepackage{calc}                                             %%
+    \usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}                                           %%
+    \usepackage{lscape}     
+    \usepackage{amsmath}
+       
+\lstset{
+%language=C,
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+\def\inputGnumericTable{}
 
 \bibliographystyle{IEEEtran}
-\let\vec\mathbf
-
-\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
 \providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
 
 \newcommand{\question}{\noindent \textbf{Question: }}
 \newcommand{\solution}{\noindent \textbf{Solution: }}
@@ -34,29 +54,27 @@
     \end{enumerate}
 
     \solution 
-     If $X$ and $Y$ are two events in a sample space $S$,
-     then The Conditional Probability of $X$ given $Y$ is defined as
-     
+     If X and Y are two events in a sample space S,
+     then The Conditional Probability of X given Y is defined as
         \begin{align}
-          \label{1}   \pr{X \mid Y} &= \frac{\pr{X \cap Y}}{\pr{Y}}
+        \label{1}  \pr{X \mid Y} &= \frac{\pr{X \cap Y}}{\pr{Y}}  
         \end{align}
-        
-        Now, It is given that
-        \begin{align}
-            \pr{A} = \frac{1}{2}\\
-            \pr{B} = \frac{1}{3}\\
-            \pr{A \cap B} = \frac{1}{4}
-        \end{align}
-        
+        Given, A and B are the events such that :  
+        \begin{table}[ht!]
+            \input{Tables/Table}
+        \caption{Given Data}
+	        \label{Tables:Table}
+        \end{table}
+    
         \begin{enumerate}
-            \item Using \eqref{1},
+            \item Using \ref{1},
             \begin{align}
                 \pr{A \mid B} &= \frac{\pr{A \cap B}}{\pr{B}}\\
                 \implies \pr{A \mid B} &= {\frac{\frac{1}{4}}{\frac{1}{3}}}\\
                 \implies \pr{A \mid B} &= \frac{3}{4} = 0.75
             \end{align}
             
-            \item Using \eqref{1},
+            \item Using \ref{1},
                 \begin{align}
                 \pr{B \mid A} &= \frac{\pr{A \cap B}}{\pr{A}}\\
                 \implies \pr{B \mid A} &= {\frac{\frac{1}{4}}{\frac{1}{2}}}\\
