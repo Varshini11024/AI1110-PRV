@@ -1,19 +1,14 @@
 import numpy as np
 from matplotlib import pyplot as plt
 
-import matplotlib.pyplot as plt
+A = np.array(([2,5]))
+B = np.array(([-1,2]))
 
-def section(m,n,x1,y1,x2,y2) : 
-  #function to find the point that divides the line segment joining (x1,y1),(x2,y2) in m:n ratio.
-  #Section formula
-  x = (float) (m * x2 + n * x1)/(m+n)
-  y = (float) (m * y2 + n * y1 )/(m+n)
-  print("M (",x,",",y,")")
+#M divides AB line segment in 1:2 ratio :
+G = 2*A + B
 
-m,n = 1,2
-x1,y1 = 2,5
-x2,y2 = -1,2
-section(1,2,2,5,-1,2) 
+M = np.array(G/(1+2))
+print("M", M)
 
 def line(C, M):
  
