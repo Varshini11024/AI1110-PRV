@@ -10,22 +10,14 @@ G = 2*A + B
 M = np.array(G/(1+2))
 print("M", M)
 
-def line(C, M):
- 
-    a = C[1] - M[1]
-    b = M[0] - C[0]
-    c = -a*(C[0]) - b*(C[1])
- 
-    if(b > 0):
-        print("The line passing through points C and M is:",
-              a, "x + ", b, "y +",c,"= 0", "\n")
-    else:
-        print("The line passing through points C and M is: ",
-              a, "x", b,"y +",c,"= 0", "\n")
-
-C = [5, 8]
-M = [1, 4]
-line(C, M)
+C = np.array(([5,8]))
+M = np.array(([1,4])) 
+#finding coefficients of x and y and constant
+a = C[1] - M[1]
+b = M[0] - C[0]
+c = a*(C[0]) + b*(C[1])
+   
+print("The line passing through points C and M is:",a,"x",b,"y =",c, "\n")
 
 #A(2,5)
 #B(-1,2)
