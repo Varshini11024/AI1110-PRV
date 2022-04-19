@@ -1,0 +1,132 @@
+\def\ifundefined#1{\expandafter\ifx\csname#1\endcsname\relax}
+\ifundefined{inputGnumericTable}
+	\def\gnumericTableEnd{\end{document}}
+
+	\documentclass[12pt%
+			  %,landscape%
+                    ]{report}
+       \usepackage[latin1]{inputenc}
+       \usepackage{fullpage}
+       \usepackage{color}
+       \usepackage{array}
+       \usepackage{longtable}
+       \usepackage{calc}
+       \usepackage{multirow}
+       \usepackage{hhline}
+       \usepackage{ifthen}
+       \usepackage[misc]{ifsym}
+	\begin{document}
+\else
+    \def\gnumericTableEnd{}
+             
+\fi
+
+
+\providecommand{\gnumericmathit}[1]{#1} 
+\providecommand{\gnumericPB}[1]%
+{\let\gnumericTemp=\\#1\let\\=\gnumericTemp\hspace{0pt}}
+ \ifundefined{gnumericTableWidthDefined}
+        \newlength{\gnumericTableWidth}
+        \newlength{\gnumericTableWidthComplete}
+        \newlength{\gnumericMultiRowLength}
+        \global\def\gnumericTableWidthDefined{}
+ \fi
+ \ifthenelse{\isundefined{\languageshorthands}}{}{\languageshorthands{english}}                                                      %%
+\providecommand\gnumbox{\makebox[0pt]}                       %%
+\setlength{\bigstrutjot}{\jot}
+\setlength{\extrarowheight}{\doublerulesep}
+\setlongtables
+
+\setlength\gnumericTableWidth{%
+	95pt+%
+	62pt+%
+	60pt+%
+	40pt+%
+0pt}
+\def\gumericNumCols{4}
+\setlength\gnumericTableWidthComplete{\gnumericTableWidth+%
+         \tabcolsep*\gumericNumCols*2+\arrayrulewidth*\gumericNumCols}
+\ifthenelse{\lengthtest{\gnumericTableWidthComplete > \linewidth}}%
+         {\def\gnumericScale{1*\ratio{\linewidth-%
+                        \tabcolsep*\gumericNumCols*2-%
+                        \arrayrulewidth*\gumericNumCols}%
+{\gnumericTableWidth}}}%
+{\def\gnumericScale{1}}
+
+
+\ifthenelse{\isundefined{\gnumericColA}}{\newlength{\gnumericColA}}{}\settowidth{\gnumericColA}{\begin{tabular}{@{}p{110pt*\gnumericScale}@{}}x\end{tabular}}
+\ifthenelse{\isundefined{\gnumericColB}}{\newlength{\gnumericColB}}{}\settowidth{\gnumericColB}{\begin{tabular}{@{}p{70pt*\gnumericScale}@{}}x\end{tabular}}
+\ifthenelse{\isundefined{\gnumericColC}}{\newlength{\gnumericColC}}{}\settowidth{\gnumericColC}{\begin{tabular}{@{}p{65pt*\gnumericScale}@{}}x\end{tabular}}
+\ifthenelse{\isundefined{\gnumericColD}}{\newlength{\gnumericColD}}{}\settowidth{\gnumericColD}{\begin{tabular}{@{}p{40pt*\gnumericScale}@{}}x\end{tabular}}
+
+	\begin{center}
+\begin{tabular}[c]{%
+	b{\gnumericColA}%
+	b{\gnumericColB}%
+	b{\gnumericColC}%
+	b{\gnumericColD}%
+	}
+
+	\hhline{|-|-~}
+	 \multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\centering}\gnumbox{\textbf{Lifetime(in hrs)}}}
+	&\multicolumn{1}{p{\gnumericColB}|}%
+	{\gnumericPB{\centering}\gnumbox{\textbf{No.of lamps}}}
+	&
+\\
+    \hhline{|--|~}
+	 \multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\centering}\gnumbox{$300-400$}}
+	&\multicolumn{1}{p{\gnumericColB}|}%
+	{\gnumericPB{\centering}\gnumbox{$14$}}
+	&
+\\
+    \hhline{|--|~}
+	 \multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\centering}\gnumbox{$400-500$}}
+	&\multicolumn{1}{p{\gnumericColB}|}%
+	{\gnumericPB{\centering}\gnumbox{$56$}}
+	&
+\\
+    \hhline{|--|~}
+	 \multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\centering}\gnumbox{$500-600$}}
+	&\multicolumn{1}{p{\gnumericColB}|}%
+	{\gnumericPB{\centering}\gnumbox{$60$}}
+	&
+\\
+    \hhline{|--|~}
+	 \multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\centering}\gnumbox{$600-700$}}
+	&\multicolumn{1}{p{\gnumericColB}|}%
+	{\gnumericPB{\centering}\gnumbox{$86$}}
+	&
+\\
+    \hhline{|--|~}
+	 \multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\centering}\gnumbox{$700-800$}}
+	&\multicolumn{1}{p{\gnumericColB}|}%
+	{\gnumericPB{\centering}\gnumbox{$74$}}
+	&
+\\
+    \hhline{|--|~}
+	 \multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\centering}\gnumbox{$800-900$}}
+	&\multicolumn{1}{p{\gnumericColB}|}%
+	{\gnumericPB{\centering}\gnumbox{$62$}}
+	&
+\\
+    \hhline{|--|~}
+	 \multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\centering}\gnumbox{$900-1000$}}
+	&\multicolumn{1}{p{\gnumericColB}|}%
+	{\gnumericPB{\centering}\gnumbox{$48$}}
+	&
+\\
+\hhline{|-|-|~}
+\\
+\end{tabular}
+	\end{center}
+	
+\ifthenelse{\isundefined{\languageshorthands}}{}{\languageshorthands{\languagename}}
+\gnumericTableEnd
