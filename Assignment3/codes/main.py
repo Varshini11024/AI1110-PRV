@@ -20,7 +20,7 @@ plt.show()
 sum=0
 data = df['No.of neon lamps']
 
-#The lifetime greater than 700 hours is from the range 4-7 in the given frequency table
+#The lifetime greater than 700 hours is from the range(4,7) in the given frequency table
 for i in range(4,7):
    sum += data[i] 
 
