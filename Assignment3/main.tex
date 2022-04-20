@@ -1,0 +1,69 @@
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+
+\usepackage{setspace}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{longtable}
+\usepackage{graphicx}
+\usepackage[breaklinks=true]{hyperref}
+
+\usepackage{listings}
+    \usepackage{color}                                            %%
+    \usepackage{array}                                            %%
+    \usepackage{longtable}                                        %%
+    \usepackage{calc}                                             %%
+    \usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}                                           %%
+    \usepackage{lscape}     
+    \usepackage{amsmath}
+       
+\lstset{
+%language=C,
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+\def\inputGnumericTable{}
+\bibliographystyle{IEEEtran}
+\newcommand{\question}{\noindent \textbf{Question: }}
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+
+\title{Assignment 3}
+\author{Varshini Jonnala (CS21BTECH11024)}
+
+\begin{document}
+    % make the title area
+    \maketitle
+    \question
+    The following table gives the lifetime of $400$ neon lamps:
+    \begin{table}[ht!]
+            \input{Tables/Table}
+        \caption{Given Data}
+	        \label{Tables:Table}
+    \end{table}
+    \begin{enumerate}[label=(\roman*)]
+		\item Represent the given information with the help of a histogram.
+		\item How many lamps have a lifetime of more than $700$ hours?
+    \end{enumerate}
+    \solution 
+     \begin{enumerate}[label=(\roman*)]
+         \item Representation of given information in the form of histogram:
+         \begin{figure}[!ht]
+		    \centering
+		    \includegraphics[width=\columnwidth]{prv3.png}
+		    \caption{Histogram}
+        \label{fig:fig-1}
+    	\end{figure}
+	
+         \item Clearly, from the given table, The number of lamps that have a lifetime of more than $700$ hours would be 
+         \begin{align}
+              &= 74 + 62 + 48 \\
+              &= 184
+         \end{align}
+     \end{enumerate}
+\end{document} 
