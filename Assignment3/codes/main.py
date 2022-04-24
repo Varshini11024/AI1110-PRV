@@ -16,10 +16,14 @@ plt.ylabel('No.of neon lamps')
 plt.xlabel('Lifetime(in hrs)')
 plt.show()
 
-sum=0
+sum = 0
 data = df['No.of neon lamps']
+lifetime=(df['A'])
 
-#The lifetime greater than 700 hours is from the range(4,7) in the given frequency table
+#finding the indexes where lifetime>=700
+print(np.where(lifetime >= 700))
+#Ouput = (array([4, 5, 6]),)  
+#So the lifetime greater than 700 hours is from the range(4,7) in the given frequency table
 sum = data[4]+data[5]+data[6]
 
 print("No.of neon lamps that have a lifetime of more than 700 hours is", sum)
