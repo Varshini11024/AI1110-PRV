@@ -1,11 +1,12 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
+import openpyxl
+import os
+os.chdir('C:\\Users\\ADMIN\\Documents')
 
-#Input parameters from excel file 
-df= pd.read_excel(r'https://github.com/Varshini11024/AI1110-PRV/blob/main/Assignment3/Tables/Given_data.xlsx?raw=true')
+df = pd.read_excel('Given_data.xlsx','Sheet1')
 print(df)
-
 df['A'] = np.arange(300,1000,100)
 # Create bar plot
 plt.bar(df['A']+50, df['No.of neon lamps'], width =100, color='blue', ec= 'black',alpha = 0.5)
@@ -16,14 +17,9 @@ plt.ylabel('No.of neon lamps')
 plt.xlabel('Lifetime(in hrs)')
 plt.show()
 
-sum = 0
-data = df['No.of neon lamps']
-lifetime=(df['A'])
-
-#finding the indexes where lifetime>=700
-print(np.where(lifetime >= 700))
-#Ouput = (array([4, 5, 6]),)  
-#So the lifetime greater than 700 hours is from the range(4,7) in the given frequency table
-sum = data[4]+data[5]+data[6]
+#neon lamps with lifetime more than 700 hours
+wb = openpyxl.load_workbook('Given_data.xlsx')
+sheet = wb['Sheet1']
+sum = sheet['B6'].value + sheet['B7'].value + sheet['B8'].value 
 
 print("No.of neon lamps that have a lifetime of more than 700 hours is", sum)
