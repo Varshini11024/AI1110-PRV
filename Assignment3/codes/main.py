@@ -17,6 +17,4 @@ plt.show()
 
 #neon lamps with lifetime more than 700 hours
 freq = df['No.of neon lamps'].to_numpy()
-indices = np.where(df['A']>=700)
-
-print("No.of neon lamps that have a lifetime of more than 700 hours is",freq[indices].sum())
+print("No.of neon lamps that have a lifetime of more than 700 hours is",freq[np.where(df['A']>=700].sum())
