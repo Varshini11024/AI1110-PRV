@@ -1,0 +1,84 @@
+\def\ifundefined#1{\expandafter\ifx\csname#1\endcsname\relax}
+\ifundefined{inputGnumericTable}
+	\def\gnumericTableEnd{\end{document}}
+
+	\documentclass[12pt%
+			  %,landscape%
+                    ]{report}
+       \usepackage[latin1]{inputenc}
+       \usepackage{fullpage}
+       \usepackage{color}
+       \usepackage{array}
+       \usepackage{longtable}
+       \usepackage{calc}
+       \usepackage{multirow}
+       \usepackage{hhline}
+       \usepackage{ifthen}
+       \usepackage[misc]{ifsym}
+	\begin{document}
+\else
+    \def\gnumericTableEnd{}
+\fi
+\providecommand{\gnumericmathit}[1]{#1} 
+\providecommand{\gnumericPB}[1]%
+{\let\gnumericTemp=\\#1\let\\=\gnumericTemp\hspace{0pt}}
+ \ifundefined{gnumericTableWidthDefined}
+        \newlength{\gnumericTableWidth}
+        \newlength{\gnumericTableWidthComplete}
+        \newlength{\gnumericMultiRowLength}
+        \global\def\gnumericTableWidthDefined{}
+ \fi
+ \ifthenelse{\isundefined{\languageshorthands}}{}{\languageshorthands{english}}                                                      %%
+\providecommand\gnumbox{\makebox[0pt]}                       %%
+\setlength{\bigstrutjot}{\jot}
+\setlength{\extrarowheight}{\doublerulesep}
+\setlongtables
+
+\setlength\gnumericTableWidth{%
+	50pt+%
+	170pt+%
+0pt}
+\def\gumericNumCols{4}
+\setlength\gnumericTableWidthComplete{\gnumericTableWidth+%
+         \tabcolsep*\gumericNumCols*2+\arrayrulewidth*\gumericNumCols}
+\ifthenelse{\lengthtest{\gnumericTableWidthComplete > \linewidth}}%
+         {\def\gnumericScale{1*\ratio{\linewidth-%
+                        \tabcolsep*\gumericNumCols*2-%
+                        \arrayrulewidth*\gumericNumCols}%
+{\gnumericTableWidth}}}%
+{\def\gnumericScale{1}}
+
+
+\ifthenelse{\isundefined{\gnumericColA}}{\newlength{\gnumericColA}}{}\settowidth{\gnumericColA}{\begin{tabular}{@{}p{50pt*\gnumericScale}@{}}x\end{tabular}}
+\ifthenelse{\isundefined{\gnumericColB}}{\newlength{\gnumericColB}}{}\settowidth{\gnumericColB}{\begin{tabular}{@{}p{170pt*\gnumericScale}@{}}x\end{tabular}}
+
+	\begin{center}
+\begin{tabular}[c]{%
+	b{\gnumericColA}%
+	b{\gnumericColB}%
+	}
+
+	\hhline{|-|-~}
+	 \multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\centering}\gnumbox{\textbf{Event}}}
+	&\multicolumn{1}{p{\gnumericColB}|}%
+	{\gnumericPB{\centering}\gnumbox{\textbf{Description}}}
+\\
+    \hhline{|--|~}
+	 \multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\centering}\gnumbox{$X=0$}}
+	&\multicolumn{1}{p{\gnumericColB}|}%
+	{\gnumericPB{\centering}\gnumbox{Hanif losing the game}}
+\\
+    \hhline{|--|~}
+	 \multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\centering}\gnumbox{$X=1$}}
+	&\multicolumn{1}{p{\gnumericColB}|}%
+	{\gnumericPB{\centering}\gnumbox{Hanif winning the game}}
+\\
+\hhline{|-|-|~}
+\end{tabular}
+	\end{center}
+	
+\ifthenelse{\isundefined{\languageshorthands}}{}{\languageshorthands{\languagename}}
+\gnumericTableEnd
