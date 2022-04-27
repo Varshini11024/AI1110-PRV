@@ -1,0 +1,93 @@
+\let\negmedspace\undefined
+\let\negthickspace\undefined
+%\RequirePackage{amsmath}
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+
+\usepackage{setspace}
+\usepackage{gensymb}
+\usepackage{amssymb}
+\usepackage[cmex10]{amsmath}
+\usepackage{longtable}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{tfrupee}
+\usepackage[breaklinks=true]{hyperref}
+\usepackage{listings}
+    \usepackage{color}                                            %%
+    \usepackage{array}                                            %%
+    \usepackage{longtable}                                        %%
+    \usepackage{calc}                                             %%
+    \usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}                                           %%
+    \usepackage{lscape}     
+\DeclareMathOperator*{\equals}{=}
+
+\renewcommand\thesectiondis{\arabic{section}}
+\renewcommand\thesubsectiondis{\thesectiondis.\arabic{subsection}}
+\renewcommand\thesubsubsectiondis{\thesubsectiondis.\arabic{subsubsection}}
+
+\def\inputGnumericTable{}                                 %%
+\lstset{
+%language=C,
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+\bibliographystyle{IEEEtran}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+\newcommand{\note}{\noindent \textbf{Note: }}
+\let\vec\mathbf
+
+\title{Assignment 4}
+\author{Varshini Jonnala\\CS21BTECH11024}
+
+\begin{document}
+    % make the title area
+    \maketitle
+
+    \begin{abstract}
+    This document contains the solution to Question 23 of Exercise 15.1(Probability) in the Class 10 NCERT Textbook.  
+    \end{abstract}
+    
+    \noindent \textbf{Question: } A game consists of tossing a \rupee$1$ coin $3$ times and noting its outcome each time. Hanif wins if all the tosses give the same result i.e., $3$ heads or $3$ tails, and loses otherwise. Calculate the probability that Hanif will lose the game.
+    
+    \solution
+    
+    Let the random variable $X$ denote the outcome of the game such that $X \in \cbrak{0,1}$ where,  
+    \begin{table}[ht!]
+        \centering
+        \input{Tables/Table}
+    	\caption{Description of Events}
+    	\label{Tables:Table}
+    \end{table}
+    
+    \note The above $2$ events are mutually exclusive and exhaustive. 
+    \begin{align}
+        \implies \pr{X = 0} + \pr{X = 1} \equals 1 \label{eq-1}
+    \end{align}
+    
+    \noindent There would be total $2^3$ i.e., $8$ outcomes possible of tossing a coin $3$ times.  
+    
+    
+    Now, Probability of Hanif winning the game i.e., all the $3$ tosses resulting in either $3$ Heads or $3$ Tails is:
+    \begin{align}
+        \pr{X = 1} &= \frac{2}{8} \label{eq-2} \\
+        \implies \pr{X=1} &= \frac{1}{4} \label{eq-3}
+    \end{align}
+    
+    \noindent From the equations \ref{eq-1} and \ref{eq-3}, The probability of Hanif losing the game is:
+    \begin{align}
+        \pr{X = 0} &= 1 - \pr{X = 1}\\
+        \pr{X = 0} &= 1 - \frac{1}{4}\\
+        \implies \pr{X = 0} &= \frac{3}{4}
+    \end{align}
+    
+    Hence, the probability that Hanif will lose the game is $0.75$ 
+\end{document}
