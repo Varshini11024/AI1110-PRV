@@ -4,7 +4,6 @@
 \documentclass[journal,12pt,twocolumn]{IEEEtran}
 
 \usepackage{setspace}
-\usepackage{gensymb}
 \usepackage{amssymb}
 \usepackage[cmex10]{amsmath}
 \usepackage{longtable}
@@ -40,7 +39,9 @@ columns=fullflexible
 \providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
 \providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
 \providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
-
+\newcommand*{\permcomb}[4][0mu]{{{}^{#3}\mkern#1#2_{#4}}}
+\newcommand*{\perm}[1][-3mu]{\permcomb[#1]{P}}
+\newcommand*{\comb}[1][-1mu]{\permcomb[#1]{C}}
 \newcommand{\solution}{\noindent \textbf{Solution: }}
 \newcommand{\note}{\noindent \textbf{Note: }}
 \let\vec\mathbf
@@ -51,16 +52,39 @@ columns=fullflexible
 \begin{document}
     % make the title area
     \maketitle
-
     \begin{abstract}
-    This document contains the solution to Question 23 of Exercise 15.1(Probability) in the Class 10 NCERT Textbook.  
+    This document contains the solution to Question-23 of Exercise 15.1(Probability) in the Class 10 NCERT Textbook.  
     \end{abstract}
     
     \noindent \textbf{Question: } A game consists of tossing a \rupee$1$ coin $3$ times and noting its outcome each time. Hanif wins if all the tosses give the same result i.e., $3$ heads or $3$ tails, and loses otherwise. Calculate the probability that Hanif will lose the game.
     
     \solution
     
-    Let the random variable $X$ denote the outcome of the game such that $X \in \cbrak{0,1}$ where,  
+    \begin{enumerate}
+         \item Let the random variable $Y\in \cbrak{0,1}$  denote the outcome of trial of tossing a coin once, where $X = 0,1$ denote the outcomes of getting Tail, Head respectively.
+	\begin{align}
+		\pr{Y=1} &= p = 0.5\\
+		\pr{Y=0} &= 1-p = 0.5
+	\end{align}
+        \item On considering $3$ Bernoulli trials for tossing a coin, let $X$ be a Binomial random variable for the trials, with parameters $n$ and $p$, where
+    \begin{enumerate}
+		\item $n$ = No.of trials = 3
+		\item $p$ = probability with which it takes a favourable outcome(here say getting Head) = 0.5
+	\end{enumerate}
+	\end{enumerate}
+	\begin{figure}[!ht]
+	\centering
+    \includegraphics[width=\columnwidth]{prv4.png}
+    \caption{Plot of the PMF}
+    \label{fig:fig-1}
+    \end{figure}
+
+	\begin{align}
+	   \fbox{$\pr{X = k} = \comb{n}{k}\brak{p}^k\brak{1-p}^{n-k}$} \label{3}
+	\end{align}
+	where $k= 0,1,\dots, n$ which is/are the number of Heads in the $n$ trials.
+    	
+   Now, Let the random variable $Z \in \cbrak{0,1}$ denotes the outcome of the game such that : 
     \begin{table}[ht!]
         \centering
         \input{Tables/Table}
@@ -70,23 +94,27 @@ columns=fullflexible
     
     \note The above $2$ events are mutually exclusive and exhaustive. 
     \begin{align}
-        \implies \pr{X = 0} + \pr{X = 1} \equals 1 \label{eq-1}
+        \implies \pr{Z = 0} + \pr{Z = 1} \equals 1 \label{4}
     \end{align}
     
-    \noindent There would be total $2^3$ i.e., $8$ outcomes possible of tossing a coin $3$ times.  
-    
-    Now, Probability of Hanif winning the game i.e., all the $3$ tosses resulting in either \underline{$3$ Heads} or \underline{$3$ Tails} is:
+    Hence, Probability of Hanif winning the game i.e., all the $3$ tosses resulting in either \underline{$3$ Heads} or \underline{$3$ Tails} is:
     \begin{align}
-    \pr{X = 1} &= \frac{\text{No.of its favourable outcomes}}{\text{Total no.of outcomes possible}}\\
-    \pr{X=1} &= \frac{2}{8} \\
-    \implies \pr{X=1} &= \frac{1}{4} \label{eq-4}
+        \pr{Z = 1} = \pr{X = 0} + \pr{X = 3}
+    \end{align}
+    From the equation- \ref{3},
+    \begin{multline}
+    \pr{Z = 1} = \comb{3}{0}\brak{0.5}^0\brak{0.5}^{3-0} +\\ \comb{3}{3}\brak{0.5}^3\brak{0.5}^{0}
+    \end{multline}
+    
+    On calculating, we get,
+    \begin{align}
+     \label{7}    \pr{Z = 1} = \frac{1}{8} + \frac{1}{8} = \frac{1}{4}
     \end{align}
     
-    \noindent From the equations \ref{eq-1} and \ref{eq-4}, The probability of Hanif losing the game is:
+    \noindent From the equations- \ref{4} and \ref{7}, The probability of Hanif losing the game is:
     \begin{align}
-        \pr{X = 0} &= 1 - \pr{X = 1}\\
-        \pr{X = 0} &= 1 - \frac{1}{4}\\
-        \implies \pr{X = 0} &= \frac{3}{4}
+        \pr{Z = 0} &= 1 - \pr{Z = 1} = 1- \frac{1}{4}\\
+        \implies \pr{Z = 0} &= \frac{3}{4}
     \end{align}
     
     Hence, the probability that Hanif will lose the game is \underline{$0.75$} 
