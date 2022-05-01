@@ -1,31 +1,26 @@
+#NCERT Class 10; Ex-15.1, Q-23
+#Varshini Jonnala
+#CS21BTECH11024
+
 import numpy as np
-from numpy import random as RN 
+import matplotlib.pyplot as plt
+from scipy import stats
 
-#Total number of outcomes possible when a coin was tossed 3 times
-N = 8
+#Creating PMF of Binomial Random Variable X = {0,1,2,3}
+#X denoting number of heads in the trails of tossing a coin 3 times
 
-#Number of favourable outcomes of Hanif winning the game
-#Hanif wins on getting 3Heads or 3Tails on tossing the coin 3 times
-n_1 = 2
-n_0 = N - n_1
+xk = np.arange(0,4)
+pk = (1/8,3/8,3/8,1/8)
+custm = stats.rv_discrete(name='custm', values=(xk, pk))
 
-#The Theoretical probabilities
-pr_0 = n_0/N
-pr_1 = n_1/N
-print("The Probability that Hanif will lose the game is ", pr_0)
-print("The Probability that Hanif will win the game is ", pr_1)
+#plotting PMF
+fig, ax = plt.subplots(1, 1)
+ax.plot(xk, custm.pmf(xk), 'ro', ms=8, mec='b')
+ax.vlines(xk, 0, custm.pmf(xk), colors='blue', linestyles='--', lw=2)
 
-#Generating samples
-T = np.random.choice([0, 1], size=(N))
+plt.title('PMF of Binomial Random Variable X',fontsize = 18)
+plt.xlabel('Value of X',fontsize = 15)
+plt.ylabel('Probability',fontsize = 15)
 
-#obtaining frequencies and probabilities
-X0 = np.count_nonzero(T == 0)
-X1 = np.count_nonzero(T == 1)
-P0 = X0/N
-P1 = X1/N
-
-#The empirical probabilities
-print('n(X=0) = ', X0)
-print('n(X=1) = ', X1)
-print('Pr(X=0) = ', P0)
-print('Pr(X=1) = ', P1
+plt.grid()
+plt.show()
