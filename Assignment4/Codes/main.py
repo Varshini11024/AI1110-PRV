@@ -18,7 +18,7 @@ fig, ax = plt.subplots(1, 1)
 ax.plot(xk, custm.pmf(xk), 'ro', ms=8, mec='b')
 ax.vlines(xk, 0, custm.pmf(xk), colors='blue', linestyles='--', lw=2)
 
-plt.title('PMF of Binomial Random Variable X',fontsize = 18)
+plt.title('PMF',fontsize = 18)
 plt.xlabel('Value of X',fontsize = 15)
 plt.ylabel('Probability',fontsize = 15)
 
