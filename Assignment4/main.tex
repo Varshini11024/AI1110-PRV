@@ -39,6 +39,8 @@ columns=fullflexible
 \providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
 \providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
 \providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
 \newcommand*{\permcomb}[4][0mu]{{{}^{#3}\mkern#1#2_{#4}}}
 \newcommand*{\perm}[1][-3mu]{\permcomb[#1]{P}}
 \newcommand*{\comb}[1][-1mu]{\permcomb[#1]{C}}
@@ -47,14 +49,11 @@ columns=fullflexible
 \let\vec\mathbf
 
 \title{Assignment 4}
-\author{Varshini Jonnala\\CS21BTECH11024}
+\author{Varshini Jonnala (CS21BTECH11024) \\ Class 10 Probability (Ex - 15.1, Q-23)}
 
 \begin{document}
     % make the title area
     \maketitle
-    \begin{abstract}
-    This document contains the solution to Question-23 of Exercise 15.1(Probability) in the Class 10 NCERT Textbook.  
-    \end{abstract}
     
     \noindent \textbf{Question: } A game consists of tossing a \rupee$1$ coin $3$ times and noting its outcome each time. Hanif wins if all the tosses give the same result i.e., $3$ heads or $3$ tails, and loses otherwise. Calculate the probability that Hanif will lose the game.
     
@@ -78,9 +77,8 @@ columns=fullflexible
     \caption{Plot of the PMF}
     \label{fig:fig-1}
     \end{figure}
-
 	\begin{align}
-	   \fbox{$\pr{X = k} = \comb{n}{k}\brak{p}^k\brak{1-p}^{n-k}$} \label{3}
+	   \fbox{$\pr{X = k} = \myvec{n\\k}\brak{p}^k\brak{1-p}^{n-k}$} \label{3}
 	\end{align}
 	where $k= 0,1,\dots, n$ which is/are the number of Heads in the $n$ trials.
     	
@@ -103,7 +101,7 @@ columns=fullflexible
     \end{align}
     From the equation- \ref{3},
     \begin{multline}
-    \pr{Z = 1} = \comb{3}{0}\brak{0.5}^0\brak{0.5}^{3-0} +\\ \comb{3}{3}\brak{0.5}^3\brak{0.5}^{0}
+    \pr{Z = 1} = \myvec{3 \\ 0}\brak{\frac{1}{2}}^0\brak{\frac{1}{2}}^{3-0} +\\ \myvec{3 \\ 3}\brak{\frac{1}{2}}^3\brak{\frac{1}{2}}^{0}
     \end{multline}
     
     On calculating, we get,
