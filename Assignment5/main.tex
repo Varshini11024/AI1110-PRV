@@ -1,0 +1,78 @@
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+
+\usepackage{setspace}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage[breaklinks=true]{hyperref}
+
+\usepackage{listings}
+    \usepackage{color}                                            %%
+    \usepackage{array}                                            %%
+    \usepackage{longtable}                                        %%
+    \usepackage{calc}                                             %%
+    \usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}                                           %%
+    \usepackage{lscape}     
+    \usepackage{amsmath}
+       
+\lstset{
+%language=C,
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+\def\inputGnumericTable{}
+\bibliographystyle{IEEEtran}
+
+\newcommand{\question}{\noindent \textbf{Question: }}
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\newcommand*{\permcomb}[4][0mu]{{{}^{#3}\mkern#1#2_{#4}}}
+\newcommand*{\perm}[1][-3mu]{\permcomb[#1]{P}}
+\newcommand*{\comb}[1][-1mu]{\permcomb[#1]{C}}
+
+\title{Assignment 5}
+\author{Varshini Jonnala (CS21BTECH11024)}
+
+\begin{document}
+% make the title area
+\maketitle
+\question
+In a certain lottery 10,000 tickets are sold and ten equal prizes are awarded. What is the probability of not getting a prize if you buy
+\begin{enumerate}[label=(\alph*)]
+\item 1 ticket?
+\item 2 tickets?
+\item 10 tickets?
+\end{enumerate}
+    
+\solution 
+Total number of tickets sold = 10,000
+Number of equal prizes awarded = 10\\
+The number of tickets that are not awarded = 9990
+
+\begin{enumerate}[label=(\alph*)]
+\item If we buy one ticket:
+\begin{align}
+\pr{\text{not getting a prize}} &= 1 - \frac{10}{10000}\\
+&= \frac{999}{1000}
+\end{align}
+         
+\item If we buy 2 tickets:\\
+As we know the favourable outcomes are obtained by selecting 2 tickets from 9990 tickets that are not awarded any prize, then
+\begin{align}
+\pr{\text{not getting a prize}} =  \frac{\comb{9990}{2}}{\comb{10000}{2}} 
+\end{align}
+
+\item If we buy 10 tickets:\\
+As we know the favourable outcomes are obtained by selecting 10 tickets from 9990 tickets that are not awarded any prize, then
+\begin{align}
+\pr{\text{not getting a prize}} =  \frac{\comb{9990}{10}}{\comb{10000}{10}} 
+\end{align}
+
+\end{enumerate}
+\end{document} 
