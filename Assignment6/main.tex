@@ -1,0 +1,74 @@
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+
+\usepackage{setspace}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage[breaklinks=true]{hyperref}
+
+\usepackage{listings}
+    \usepackage{color}                                            %%
+    \usepackage{array}                                            %%
+    \usepackage{longtable}                                        %%
+    \usepackage{calc}                                             %%
+    \usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}                                           %%
+    \usepackage{lscape}     
+    \usepackage{amsmath}
+       
+\lstset{
+%language=C,
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+\def\inputGnumericTable{}
+\bibliographystyle{IEEEtran}
+
+\newcommand{\question}{\noindent \textbf{Question: }}
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\newcommand*{\permcomb}[4][0mu]{{{}^{#3}\mkern#1#2_{#4}}}
+\newcommand*{\perm}[1][-3mu]{\permcomb[#1]{P}}
+\newcommand*{\comb}[1][-1mu]{\permcomb[#1]{C}}
+
+\title{Assignment 5}
+\author{Varshini Jonnala (CS21BTECH11024)}
+
+\begin{document}
+% make the title area
+\maketitle
+\question
+
+    
+\solution 
+
+
+ Let the random variable $X \in \cbrak{0,1,2}$ denote the number of aces obtained when two cards are drawn at random from a deck of 52 cards. So, when two cards are drawn at random, the events are described as follows:
+
+    \begin{table}[ht!]
+        \centering
+        \input{Tables/Table}
+    	\caption{Description of Events}
+    	\label{Tables:Table}
+    \end{table}
+    
+    \begin{align}
+        \pr{X = 0} = \frac{\comb{4}{0} \comb{48}{2}}{\comb{52}{2}} = \frac{1128}{1326}\\
+         \pr{X = 1} = \frac{\comb{4}{1} \comb{48}{1}}{\comb{52}{2}} = \frac{192}{1326}\\
+          \pr{X = 2} = \frac{\comb{4}{2} \comb{48}{0}}{\comb{52}{2}} = \frac{6}{1326}
+    \end{align}
+    The probability distribution is as follows:
+    \begin{align}
+    E\brak{X} &= \sum_{i = 1}^{n}x_i \times \pr{x_i}\\
+    &= 0 \times \frac{1128}{1328} + 1 \times \frac{192}{1328} + 2\times \frac{6}{1326}\\
+    &= \frac{204}{1326}\\
+    &= \fbox{$\frac{2}{13}$}
+    \end{align}
+
+\end{document} 
