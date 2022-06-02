@@ -1,0 +1,88 @@
+ \documentclass{beamer}
+
+% Theme choice:
+\usetheme{Madrid}
+\usepackage{setspace}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{longtable}
+\usepackage{graphicx}
+
+\usepackage{listings}
+    \usepackage{color}                                            %%
+    \usepackage{array}                                            %%
+    \usepackage{longtable}                                        %%
+    \usepackage{calc}                                             %%
+    \usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}                                           %%
+    \usepackage{lscape}     
+    \usepackage{amsmath}
+\def\inputGnumericTable{}
+\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\newcommand*{\permcomb}[4][0mu]{{{}^{#3}\mkern#1#2_{#4}}}
+\newcommand*{\perm}[1][-3mu]{\permcomb[#1]{P}}
+\newcommand*{\comb}[1][-1mu]{\permcomb[#1]{C}}
+
+% Title page details: 
+\title{Assignment 9} 
+\author{Varshini Jonnala - CS21BTECH11024}
+\date{\today}
+
+\begin{document}
+
+% Title page frame
+\begin{frame}
+    \titlepage 
+\end{frame}
+
+\section{Question}
+\begin{frame}{Question}
+\begin{itemize}
+    \item The random variables $X_i$ are i.i.d with density $ce^{-cx} U(x)$. Show that, if $x = x_1+\dots+x_n$, then $f_x(x)$ is an Erlang density.  
+\end{itemize}
+\end{frame}
+
+% Blocks frame
+\section{Solution}
+\begin{frame}[allowframebreaks]{Solution}
+ Since, we know that,
+\begin{align}
+ \text{When } f(x) &= \gamma .x^{b-1} .e^{-cx} U(x) \text{ and } \gamma = \frac{c^{b+1}}{\Gamma (b+1)} \\
+\text{It follows that } \phi (s) &= \gamma \int_{0}^{\infty} x^{b-1} e^{-(c-s)x} dx = \frac{\gamma \Gamma (b)}{\brak{c-s}^b} = \frac{c^b}{\brak{c-s}^b} 
+\end{align}
+
+Differentiating with respect to $s$ and setting $s = 0$, we obtain
+\begin{align}
+    \phi^{n} (0) &= \frac{b(b+1)\dots(b+n-1)}{c^n} = E\brak{x^n}
+\end{align}
+    
+With $n = 1$ and $n = 2$, this yields 
+    \begin{align}
+        E\brak{x} &= \frac{b}{c} \\
+        E \brak{x^2} &= \frac{b(b+1)}{c^2}\\
+        \sigma^2 &= \frac{b}{c^2}
+    \end{align}
+    
+    The exponential density is a special case obtained with $b = 1, C = \lambda$: 
+    \begin{align}
+        f(x) &= \lambda . e^{-\lambda x} U(x) \\
+        \phi (s) &= \frac{\lambda}{\lambda - s} 
+    \end{align}
+    where $E\brak{x} = \frac{1}{\lambda}$ and  $\lambda^2 = \frac{1}{\sigma^2}$ \\ 
+Now, It is given that, 
+\begin{align}
+f_1(x) &= ce^{-cx} U(x) \\
+\text{then } \phi_1(s) &= \frac{c}{c-s}\\
+\phi(s) &= \phi_1(s) + \phi_2(s) + \dots + \phi_n(s) = \frac{c^n}{\brak{c-s}^n}\\
+   \text{Hence, } f(x) &= \frac{c^n x^{m-1}}{\brak{n-1}!} e^{-cx} U(x)  
+    \end{align}
+\end{frame} 
+\end{document}
