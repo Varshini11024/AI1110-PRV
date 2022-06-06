@@ -1,0 +1,88 @@
+\documentclass{beamer}
+
+% Theme choice:
+\usetheme{Madrid}
+\usepackage{setspace}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{longtable}
+\usepackage{graphicx}
+
+\usepackage{listings}
+    \usepackage{color}                                            %%
+    \usepackage{array}                                            %%
+    \usepackage{longtable}                                        %%
+    \usepackage{calc}                                             %%
+    \usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}                                           %%
+    \usepackage{lscape}     
+    \usepackage{amsmath}
+\def\inputGnumericTable{}
+\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\newcommand*{\permcomb}[4][0mu]{{{}^{#3}\mkern#1#2_{#4}}}
+\newcommand*{\perm}[1][-3mu]{\permcomb[#1]{P}}
+\newcommand*{\comb}[1][-1mu]{\permcomb[#1]{C}}
+
+% Title page details: 
+\title{Assignment 10} 
+\author{Varshini Jonnala - CS21BTECH11024}
+\date{\today}
+
+\begin{document}
+
+% Title page frame
+\begin{frame}
+    \titlepage 
+\end{frame}
+
+\section{Question}
+\begin{frame}{Question}
+The diameter of cylindrical rods coming out of a production line is a normal random variable $x$ with $\sigma = 0.1$mm. We measure $n = 9$ units and find that the average of the measurements is $\Bar{x} = 91$ mm.
+    \begin{enumerate}[label=(\alph*)]
+        \item Find $c$ such that with a 0.95 confidence coefficient, the mean $\eta$ of x is in the interval $x\pm c$.
+        \item We claim that $\eta$ is in the interval $\brak{90.95, 91.05}$. Find the confidence coefficient of our claim.  
+    \end{enumerate}
+\end{frame}
+
+%Blocks frame
+\section{Solution}
+\begin{frame}[allowframebreaks]{Solution}
+ Let $x$ represents the diameter of cylindrical rods coming out of a production line is a normal random variable.\\
+
+\begin{align}
+ \text{The sample size is: } n &= 9 \\
+\text{The population standard deviation is: } \sigma &= 0.1 \\
+\text{The sample mean is: }\Bar{x} &= 91
+\end{align}
+
+\begin{enumerate}[label=(\alph*)]
+    \item \begin{align} c &= \frac{Z_u  \sigma}{\sqrt{n}}\\
+    &= \frac{1.96 \times 0.1}{\sqrt{9}}\\
+    &= \frac{0.196}{3}\\
+    &= 0.066
+    \end{align}
+     Hence, the required constant value is: \fbox{c = 0.066}
+\newpage
+     \item The confidence coefficient of our claim:
+     \begin{align}
+         Z_u &= \frac{\brak{1 - 0.95} \sqrt{n}}{\sigma}\\
+         &= \frac{\brak{0.05} \sqrt{9}}{0.1}\\
+         &= 1.5 \\
+         \text{Confidence Coefficient } &= \pr{Z \leq 1.5}\\
+          \text{\brak{from ...codes/main.py}} &= \brak{ = \text{NORMSDIST} \brak{1.5}} \\
+         &= 0.933
+     \end{align}
+    Hence, the required confidence coefficient is \fbox{0.933}
+\end{enumerate}
+\end{frame} 
+
+\end{document}
