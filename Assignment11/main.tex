@@ -1,0 +1,79 @@
+\documentclass{beamer}
+
+% Theme choice:
+\usetheme{Madrid}
+\usepackage{setspace}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{longtable}
+\usepackage{graphicx}
+
+\usepackage{listings}
+    \usepackage{color}                                            %%
+    \usepackage{array}                                            %%
+    \usepackage{longtable}                                        %%
+    \usepackage{calc}                                             %%
+    \usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}                                           %%
+    \usepackage{lscape}     
+    \usepackage{amsmath}
+\def\inputGnumericTable{}
+\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\newcommand*{\permcomb}[4][0mu]{{{}^{#3}\mkern#1#2_{#4}}}
+\newcommand*{\perm}[1][-3mu]{\permcomb[#1]{P}}
+\newcommand*{\comb}[1][-1mu]{\permcomb[#1]{C}}
+
+% Title page details: 
+\title{Assignment 11} 
+\author{Varshini Jonnala - CS21BTECH11024}
+\date{\today}
+
+\begin{document}
+
+% Title page frame
+\begin{frame}
+    \titlepage 
+\end{frame}
+
+\section{Question}
+\begin{frame}{Question}
+Show that, if the process $X(w)$ is white noise with zero mean and autocovariance $Q(u)\delta(u - v)$, then its inverse Fourier transform $x(t)$ is WSS with power spectrum $Q(w)/2\pi$.
+\end{frame}
+
+%Blocks frame
+\section{Solution}
+\begin{frame}[allowframebreaks]{Solution}
+    \begin{align}
+        E\cbrak{x(t_1)x^*(t_2)} &=\frac{1}{4\pi^2} E\cbrak{\int_{-\infty}^\infty \int_{-\infty}^\infty  E\cbrak{X(u)X^*(v)} e^{j\brak{ut_1 - vt_2}} du dv }\\
+        &= \frac{1}{4\pi^2} E\cbrak{\int_{-\infty}^\infty \int_{-\infty}^\infty  Q(u)\delta(u - v)  e^{j\brak{ut_1 - vt_2}} du dv }
+       % &= \frac{1}{4\pi^2} E\cbrak{\int_{-\infty}^\infty  Q(u) e^{j\brak{ut_1 - vt_2}} du}
+    \end{align}
+    We know that, A random process $\cbrak{X(t),t \in R}$ whose mean is independent of $t$, is weak-sense stationary or wide-sense stationary (WSS) for all $t \in R$, if
+    \begin{align}
+        R_X\brak{t_1,t_2}=R_X\brak{t_1 - t_2}
+    \end{align}
+\newpage
+    Now, 
+    This depends only on $\tau = t_1 - t_2$ :
+   
+    
+    \begin{align}
+        R_{XX}\brak{\tau} &= \frac{1}{2\pi} \int_{-\infty}^\infty Q(u) e^{jur} du
+    \end{align}
+    Hence, Power Spectrum $S_{XX}(\omega)$ of $X(\omega)$ would be:
+    \begin{align}
+         S_{XX} \brak{\omega} &= \frac{Q(\omega)}{2\pi}
+    \end{align}
+    Hence, proved.
+\end{frame} 
+
+\end{document}
