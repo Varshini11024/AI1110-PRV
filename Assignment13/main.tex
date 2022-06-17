@@ -1,1 +1,103 @@
+\documentclass{beamer}
 
+% Theme choice:
+\usetheme{Madrid}
+\usepackage{setspace}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{enumerate}
+\usepackage{calc}                     
+
+\providecommand{\abs}[1]{\left\vert#1\right\vert}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+
+\title{Assignment 13} 
+\author{Varshini Jonnala - CS21BTECH11024}
+\date{June 15, 2022}
+
+\begin{document}
+\begin{frame}
+    \titlepage 
+\end{frame}
+
+\section{Question}
+\begin{frame}{Question}
+
+    Let $P_n(z)$ represent the Levinson polynomial of the first kind. 
+    \begin{enumerate}[label=(\alph*)]
+        \item If one of the roots of $P_n(z)$ lie on the unit circle, then show that all other roots of $P_n(z)$ are simple and lie on the unit circle.
+        \item If the reflection coefficient $s_k\neq0$, then show that $P_k(z)$ and $P_{k+1}(z)$ have no roots in common. 
+    \end{enumerate}
+\end{frame}
+
+\section{Solution}
+\begin{frame}{Solution}
+
+    (a) Let $z=e^{j\theta_1}$ represent one of the roots of the Levinson Polynomial $P_n(z)$ that lie on the unit circle. In that case,
+    \begin{align}
+        P_n\brak{e^{j\theta_1}} &= 0
+    \end{align}
+    
+    and substituting this into the recursion equation, 
+    \begin{align}
+        \sqrt{1-s_n^2}P_n(z) &= P_{n-1}(z)-z s_n\tilde{P}_{n-1}(z)
+    \end{align}
+    
+    We get
+    \begin{align}
+        \abs{s_n} &= \abs{\frac{P_{n-1}\brak{e^{j\theta_1}}}{\tilde{P}_{n-1}\brak{e^{j\theta_1}}}}=1
+    \end{align}
+    
+    so that
+    \begin{align}
+        s_n &= e^{j\alpha}
+    \end{align}
+\end{frame} 
+
+\begin{frame}
+    Let 
+    \begin{align}
+        P_{n-1}(e^{j\theta}) &= R(\theta)e^{j\psi(\theta)}
+    \end{align}
+
+    and since $P_{n-1}(z)$ is free of zeros in $|z|\leq 1$,we have $R(\theta)>0,0<\theta<2\pi$, and once again substituting these into 
+    \begin{align}
+        \sqrt{1-s_n^2}P_n(z) &= P_{n-1}(z)-z s_n\tilde{P}_{n-1}(z)
+    \end{align}
+    
+    We obtain
+    \begin{align}
+        \sqrt{1-s_n^2}P_n(e^{j\theta}) &= R(\theta)e^{j\psi(\theta)} - e^{j(\theta+\alpha)}e^{j(n-1)\theta}R(\theta)e^{-j\psi(\theta)}\\
+        &= R(\theta)[e^{j\psi(\theta)}-e^{j(n\theta+\alpha)}e^{-j\psi(\theta)}]\\
+        &= 2jR(\theta)e^{j(n\theta+\alpha)/2} sin\brak{\psi(\theta)-\frac{n\theta}{2}-\frac{\alpha}{2}}
+    \end{align}
+\end{frame}
+
+
+\begin{frame}
+    We observe that,
+    \begin{enumerate}[label=(\roman*)]
+        \item Due to the strict Hurwitz nature of $P_{n-1}(z)$, as $\theta$ varies from $0$ to $2\pi$,there is no net increment in the phase term $\psi(\theta)$, and the entire argument of the sine term above increases by $n\pi$.
+        \item Consequently $P_n(e^{j\theta})$ equals zero atleast at $n$ distinct points $\theta_1,\theta_2,\dots,\theta_n, 0<\theta_i<2\pi$.
+        \item However $P_n(z)$ is a polynomial odd degree $n$ is $z$ and can have atmost $n$ zeros. Thus all the above zeros are simple and they all lie on the unit circle. 
+    \end{enumerate}
+\end{frame}
+
+\section{Solution - (b)}
+    \begin{frame}{Solution - (b)}
+    (b)  Suppose $P_n(z)$ and $P_{n-1}(z)$ has a common zero at $z=z_0$. Then $\abs{z_0}>1$ and we obtain
+    \begin{align}
+        z_0s_n\tilde{P}_{n-1}(z_0) &=0
+    \end{align}
+    which gives $s_n=0$, since $\tilde{P}_{n-1}(z_0)=0$ as it has all its zeros in $|z|<1$.\\
+    Hence $s_n \neq 0$ implies $P_n(z)$ and $P_{n-1}(z)$ do not have any common roots.
+\end{frame}
+
+\end{document}
