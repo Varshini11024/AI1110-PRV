@@ -6,7 +6,7 @@
 
 **Course Code :** AI1110
 
-**Instructor :** Dr.G.V.V.Sharma
+**Instructor :** Dr. G.V.V.Sharma
 
 **Student :** Varshini Jonnala
 
